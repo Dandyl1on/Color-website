@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" href="Index.css">
+<head>
+    <script src="jquery-3.7.1.js"></script>
+    <title>Landing page for webprogrammering</title>
+</head>
+<body>
+<div class="container">
+    <div id="templateDiv">
+        
+        <p id="templateP">This is a template div element that will be standartized over the entire landing page 
+            and hopefully other places too the current cascading style sheet (css) used for this one is as follows.
+            This paragraph has a background color to show the different elements of the <b>div</b> content
+        </p>
+        <div class="container">
+        <div id="flexDiv1">
+            <p>
+                This paragraph is displayed to the side of the css with the use of the <em>display: flex;</em> command,
+                however its important to note that the content is within the same <b>div</b> as indicated by the background color.
+                <br><br>
+                Lorem ipsum dolor sit amet. Sit consequatur vitae et earum tempora non autem galisum qui ratione ipsum et quia omnis eum possimus sapiente. Rem ratione molestias ut nesciunt rerum in distinctio voluptates 33 cupiditate corporis!
+                Qui explicabo rerum ut tempora omnis sed vero distinctio ea pariatur minima qui internos commodi! Est eveniet distinctio ut impedit enim ad nesciunt libero.
+
+            </p>
+        </div>
+        <!-- note that since the content below is in a pre the alignment has to be all the way to the left side -->
+        <div id="flexDiv2">    
+            <pre>
+<code> 
+#Jlists {
+    background-color: lightgray;
+    width: 650px;
+    padding: 15px;
+    border: 2px solid black;
+}
+</code>
+            </pre>
+        </div>
+            
+        </div>
+            <p id="templateP">testing time of the content below the 2 divs above
+                Lorem ipsum dolor sit amet. Sit consequatur vitae et earum tempora non autem galisum qui ratione ipsum et quia omnis eum possimus sapiente. Rem ratione molestias ut nesciunt rerum in distinctio voluptates 33 cupiditate corporis!
+                Qui explicabo rerum ut tempora omnis sed vero distinctio ea pariatur minima qui internos commodi! Est eveniet distinctio ut impedit enim ad nesciunt libero.
+                Et temporibus similique non perferendis debitis in sint quae non ipsam voluptatem non laudantium nesciunt? Et incidunt minima est temporibus voluptate id aliquam necessitatibus. Ea dolor beatae ea culpa quaerat eos galisum laborum ea exercitationem ratione 33 modi quia.
+            </p>
+        
+    </div>
+    
+    <div id="Jlists">
+        <p>Below are list which is used for JQuery experiments - will be transfered to seperate page later</p>
+        <hr>
+        <p>Change the words of the first point in the list below: <input type="text" id="TextInput1"> <button id="Confirm1">confirm</button></p>
+        <p>Change the words of the second point in the list below: <input type="text" id="TextInput2"> <button id="Confirm2">confirm</button></p>
+        <p>Change the words of the third point in the list below: <input type="text" id="TextInput3"> <button id="Confirm3">confirm</button></p>
+
+        <ul id="Jlu">
+            <li id="one" class="hot"> This is the first text</li>
+            <li id="two" class="hot"> This is the second text</li>
+            <li id="three" class="hot"> This is the third text</li>
+        </ul>
+    </div>
+</div>
+    
+    <script src="Index.js"></script>
+</body>
+</html>
