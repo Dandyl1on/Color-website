@@ -12,7 +12,7 @@ include "connect.php";
             $user = $result->fetch_assoc();
             
             if(password_verify($password,$user['password'])){
-                echo "Login succesful!, welcome " . $user['fullname'];
+                echo "Login successful!, welcome " . $user['fullname'];
                 
                 header("Location: index.html");
             }
