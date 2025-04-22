@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Color Palette</title>
+        <link rel="stylesheet" href="css/ColorPalette.css">
+        <link rel="icon"  href="Image/PaletteIcon.png" type="image/png">
+    </head>
+    <body>
+        <div class="topnav">
+            <a class="active" href="HomePage.html">Color palette creator</a>
+                <div class="topnav-right">
+                    <a class="active" href="HomePage.html">Home</a>
+                    <a class="active" href="GeneratorPage.html">Color creator</a>
+                    <a class="active" href="PalettePage.html">Palettes</a>
+                    <a class="active" href="ProfilPage.html">Profil</a>
+                </div>
+        </div>
+
+        <div class="colorContainer">
+            <div id="colorDisplay" class="color-card animate__animated animate__fadeIn">
+                <center>
+                <div class="colorValues">
+                    <div class="buttons">
+                        <button onclick="genColorFn()">
+                            Generate</button>
+                        <button onclick="cpyFn('colorHex')">
+                            <img src="Image/HashtagCopyIcon.png" alt="HEX button image"></button>
+                        <button onclick="cpyFn('colorRgb')">
+                            <img src="Image/RGBCopyIcon.png" alt="RGB button image"></button>
+                    </div>
+                    <p id="colorRgb">255, 255, 255</p>
+                    <p id="colorHex">#FFFFFF</p>
+                </div>
+                </center>
+            </div>
+
+            <p id="copyMessage" class="animate__animated"></p>
+
+            <div id="colorDisplay" class="color-card animate__animated animate__fadeIn">
+                <center>
+                <div class="colorValues">
+                    <div class="buttons">
+                        <button onclick="genColorFn2()">
+                            Generate</button>
+                        <button onclick="cpyFn('colorHex')">
+                            <img src="Image/HashtagCopyIcon.png" alt="HEX button image"></button>
+                        <button onclick="cpyFn('colorRgb')">
+                            <img src="Image/RGBCopyIcon.png" alt="RGB button image"></button>
+                    </div>
+                    <p id="colorRgb">255, 255, 255</p>
+                    <p id="colorHex">#FFFFFF</p>
+                </div>
+                </center>
+            </div>
+
+            <p id="copyMessage" class="animate__animated"></p>
+        </div>
+
+        <footer id="foot">
+            <img src="Image/PaletteIcon.png" class="icon"> <br><br><br><br><br>
+            <span class="foot-name">Color palette creator</span><br><br><br><br><br>
+                <p>colorcreator@gmail.com</p>
+                <p>9000 Aalborg</p>
+                <p>Rendsburggade 14</p>
+                <p>Aalborg University</p>
+        </footer>
+
+        <script src="JavaScript/ColorGenerator.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', genColorFn);
+        </script>
+    </body>
+</html>
