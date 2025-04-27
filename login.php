@@ -14,7 +14,7 @@ include "connect.php";
             if(password_verify($password,$user['password'])){
                 echo "Login successful!, welcome " . $user['fullname'];
                 
-                header("Location: index.html");
+                header("Location: HomePage.html");
             }
             else{
                 echo "Wrong password";

@@ -17,7 +17,7 @@ include "connect.php";
         
             $sql = "INSERT INTO users(fullname, email, password) VALUES('$fullname', '$email', '$hashed_password')";
             if($conn->query($sql)===TRUE){
-                echo "Account created!!!";
+                header("Location: Index.html");
             }else{
                 echo "Error" .$sql.$conn->error;
             }
