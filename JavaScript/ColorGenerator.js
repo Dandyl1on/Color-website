@@ -122,8 +122,8 @@ function savePalette() {
         console.log("Gemmer palette:", palette);
 
         // Hvis du har en server route kunne du sende med fetch:
-        /*
-        fetch('/savePalette', {
+        
+        /*fetch('/savePalette', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -133,8 +133,8 @@ function savePalette() {
             alert('Palette saved successfully!');
         }).catch(err => {
             alert('Error saving palette.');
-        });
-        */
+        });*/
+        
         alert('Palette saved!');
     } else {
         // Hvis ikke logget ind, vis popup
@@ -163,7 +163,7 @@ function showLoginPopup() {
         <div style="background: white; padding: 40px; border-radius: 12px; text-align: center;">
             <h2>You need to log in</h2>
             <button onclick="location.href='LoginPage.html'" style="margin: 10px; font-size: 20px;">Login</button>
-            <button onclick="location.href='RegisterPage.html'" style="margin: 10px; font-size: 20px;">Register</button>
+            <button onclick="location.href='LoginPage.html'" style="margin: 10px; font-size: 20px;">Register</button>
             <br><br>
             <button onclick="closePopup()" style="margin-top: 20px; font-size: 16px;">Close</button>
         </div>
