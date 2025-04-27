@@ -3,22 +3,39 @@
     <head>
         <title>Color Palette</title>
         <link rel="stylesheet" href="css/ColorPalette.css">
+        <link rel="stylesheet" href="css/PaletteSearch.css">
         <link rel="icon"  href="Image/PaletteIcon.png" type="image/png">
     </head>
     <body>
-                <div class="topnav">
-                    <!--<a href="ColorPaletteHomePage.html"><img src="Image/PaletteIcon.png" id="logo" span class="span-logo"/></a>-->
-                    <a class="active" href="HomePage.html">Color palette creator</a>
-                        <div class="topnav-right">
-                            <a class="active" href="HomePage.html">Home</a>
-                            <a class="active" href="GeneratorPage.html">Color creator</a>
-                            <a class="active" href="PalettePage.html">Palettes</a>
-                            <a class="active" href="ProfilPage.html">Profil</a>
-                            <!--<img src="Image/user.png" alt="Profil" id="profil" span class="span-profil"/>
-                            <img src="Image/menu-bar.png" alt="Menu" id="menu" span class="span-menu"/>-->
-                        </div>
+        <div class="topnav">
+            <a class="active" href="HomePage.html">Color palette creator</a>
+                <div class="topnav-right">
+                    <a class="active" href="HomePage.html">Home</a>
+                    <a class="active" href="GeneratorPage.html">Color creator</a>
+                    <a class="active" href="PalettePage.html">Palettes</a>
+                    <a class="active" href="ProfilPage.html">Profil</a>
                 </div>
+        </div>
 
+        <div class="color-selector">
+            <div class="color-square" style="background-color: #FF6F61;" data-color="red"></div>
+            <div class="color-square" style="background-color: #6B5B95;" data-color="purple"></div>
+            <div class="color-square" style="background-color: #88B04B;" data-color="green"></div>
+            <div class="color-square" style="background-color: #FFA500;" data-color="orange"></div>
+            <div class="color-square" style="background-color: #009688;" data-color="teal"></div>
+        </div>
+        
+        <div id="palette-display"></div>
 
+        <footer id="foot">
+            <img src="Image/PaletteIcon.png" class="icon"> <br><br><br><br><br>
+            <span class="foot-name">Color palette creator</span><br><br><br><br><br>
+                <p>colorcreator@gmail.com</p>
+                <p>9000 Aalborg</p>
+                <p>Rendsburggade 14</p>
+                <p>Aalborg University</p>
+        </footer>
+
+        <script src="JavaScript/PaletteSearcher.js"></script>
     </body>
 </html>
