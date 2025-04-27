@@ -11,18 +11,28 @@ include "connect.php";
         if ($result->num_rows >0){
             $user = $result->fetch_assoc();
             
-            if(password_verify($password,$user['password'])){
-                echo "Login successful!, welcome " . $user['fullname'];
-                
-                header("Location: HomePage.html");
+                if (password_verify($password, $user['password'])) {
+                    // Successful login - redirect with JavaScript
+                    $_SESSION['isLoggedIn'] = true;
+                    echo "<script>
+                        localStorage.setItem('isLoggedIn', 'true');
+                        alert('Login successful! Welcome {$user['fullname']}');
+                        window.location.href = 'Index.html';
+                    </script>";
+                } else {
+                    // Wrong password - show popup
+                    echo "<script>
+                        alert('Wrong password!');
+                        window.history.back();
+                    </script>";
+                }
+            } else {
+                // No user found - show popup
+                echo "<script>
+                    alert('No user with that email!');
+                    window.history.back();
+                </script>";
             }
-            else{
-                echo "Wrong password";
-            }
-        }
-        else{
-            echo "No user with that email";
-        }
     }
 
 ?>

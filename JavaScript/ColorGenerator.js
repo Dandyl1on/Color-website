@@ -110,7 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 // Simulerer login status - du kan sætte dette op med rigtig session senere
-let isLoggedIn = false; // Sæt til true hvis brugeren er logget ind (skal selvfølgelig være dynamisk i virkeligheden)
+let isLoggedIn = localStorage.getItem('isLoggedIn') === 'true'; // Sæt til true hvis brugeren er logget ind (skal selvfølgelig være dynamisk i virkeligheden)
 
 // Funktion til at gemme paletten
 function savePalette() {
@@ -139,6 +139,8 @@ function savePalette() {
     } else {
         // Hvis ikke logget ind, vis popup
         showLoginPopup();
+        console.log(isLoggedIn);
+
     }
 }
 
