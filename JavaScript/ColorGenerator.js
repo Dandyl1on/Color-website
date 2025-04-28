@@ -162,8 +162,8 @@ function showLoginPopup() {
     popup.innerHTML = `
         <div style="background: white; padding: 40px; border-radius: 12px; text-align: center;">
             <h2>You need to log in</h2>
-            <button onclick="location.href='LoginPage.html'" style="margin: 10px; font-size: 20px;">Login</button>
-            <button onclick="location.href='LoginPage.html'" style="margin: 10px; font-size: 20px;">Register</button>
+            <button onclick="location.href='LoginPage.php'" style="margin: 10px; font-size: 20px;">Login</button>
+            <button onclick="location.href='LoginPage.php'" style="margin: 10px; font-size: 20px;">Register</button>
             <br><br>
             <button onclick="closePopup()" style="margin-top: 20px; font-size: 16px;">Close</button>
         </div>
