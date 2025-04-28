@@ -13,7 +13,7 @@ include "connect.php";
         echo "<script>
             localStorage.setItem('isLoggedIn', 'true');
             alert('Account created successful! Welcome {$user['fullname']}');
-            window.location.href = 'Index.html';
+            window.location.href = 'Index.php';
             </script>";
 
         if($result->num_rows > 0){
