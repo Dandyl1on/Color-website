@@ -8,6 +8,12 @@ include "connect.php";
 
         $checkEmail = "SELECT * FROM users WHERE email= '$email'";
         $result = $conn->query($checkEmail);
+        $_SESSION['isLoggedIn'] = true;
+        echo "<script>
+            localStorage.setItem('isLoggedIn', 'true');
+            alert('Account created successful! Welcome {$user['fullname']}');
+            window.location.href = 'Index.html';
+            </script>";
 
         if($result->num_rows > 0){
             echo "Email already has an account";

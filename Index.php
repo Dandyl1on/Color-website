@@ -1,3 +1,7 @@
+<?php
+session_start();
+$isLoggedIn = isset($_SESSION['isLoggedIn']) && $_SESSION['isLoggedIn'];
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -10,18 +14,19 @@
             <img src="Image/MainColors.png">
         
                 <div class="topnav">
-                    <a class="active" href="Index.html">Color palette creator</a>
+                    <a class="active" href="Index.php">Color palette creator</a>
                         <div class="topnav-right">
-                            <a class="active" href="Index.html">Home</a>
-                            <a class="active" href="generatorpage.html">Color creator</a>
-                            <a class="active" href="palettepage.html">Palettes</a>
-                            <a class="active" href="profilpage.html">Profil</a>
+                            <a class="active" href="Index.php">Home</a>
+                            <a class="active" href="generatorpage.php">Color creator</a>
+                            <a class="active" href="palettepage.php">Palettes</a>
+                            <a class="active" href="profilpage.php">Profil</a>
+                            <a class="active" id="login">Login</a>
                         </div>
                 </div>
             
                 
                 <div class="content">
-                    <button type="button" onclick="document.location='generatorpage.html'">Get creating</button>
+                    <button type="button" onclick="document.location='generatorpage.php'">Get creating</button>
                 </div>
         </div>    
         <div class="Palette-Example">
@@ -46,31 +51,18 @@
         </footer>
         <script>
             // Check if user is logged in
-            let isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
-
-            // Find the topnav-right div
-            const topNavRight = document.querySelector('.topnav-right');
+            let isLoggedIn = <?php echo $isLoggedIn ? 'true' : 'false'; ?>;
+            const logout = document.getElementById('login');
 
             // If logged in, add a logout "link"
-            if (isLoggedIn && topNavRight) {
-                const logoutLink = document.createElement('a');
-                logoutLink.textContent = "Logout";
-                logoutLink.href = "#"; // Stay on page
-                logoutLink.style.fontSize = "20px";
-                logoutLink.style.color = "black";
-                logoutLink.style.fontWeight = "normal";
-                logoutLink.style.fontStyle = "normal";
-                logoutLink.style.paddingTop = "25px";
-                logoutLink.style.paddingLeft = "16px";
-                logoutLink.style.paddingRight = "16px";
-                logoutLink.style.textDecoration = "none";
-                logoutLink.onclick = function(e) {
-                    e.preventDefault();
-                    localStorage.removeItem('isLoggedIn');
-                    alert('Logged out successfully!');
-                    window.location.href = 'Index.html';
-                };
-                topNavRight.appendChild(logoutLink);
+            if (isLoggedIn) {
+                logout.textContent = "Logout";
+                logout.href="Logout.php";
+            }
+            else{
+                logout.textContent = "Login";
+                logout.href="loginpage.html";
+                console.log(isLoggedIn)
             }
         </script>
 

@@ -1,3 +1,7 @@
+<?php
+session_start();
+$isLoggedIn = isset($_SESSION['isLoggedIn']) && $_SESSION['isLoggedIn'];
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -9,12 +13,13 @@
     </head>
     <body>
         <div class="topnav">
-            <a class="active" href="HomePage.html">Color palette creator</a>
+            <a class="active" href="Index.php">Color palette creator</a>
                 <div class="topnav-right">
-                    <a class="active" href="HomePage.html">Home</a>
-                    <a class="active" href="GeneratorPage.html">Color creator</a>
-                    <a class="active" href="PalettePage.html">Palettes</a>
-                    <a class="active" href="ProfilPage.html">Profil</a>
+                    <a class="active" href="Index.php">Home</a>
+                    <a class="active" href="GeneratorPage.php">Color creator</a>
+                    <a class="active" href="PalettePage.php">Palettes</a>
+                    <a class="active" href="ProfilPage.php">Profil</a>
+                    <a class="active" id="login">Login</a>
                 </div>
         </div>
 
@@ -38,6 +43,22 @@
                 <p>Aalborg University</p>
         </footer>
 
-        <script src="JavaScript/PaletteSearcher.js"></script>
+        <script src="JavaScript/palettesearcher.js"></script>
+        <script>
+                            // Check if user is logged in
+                            let isLoggedIn = <?php echo $isLoggedIn ? 'true' : 'false'; ?>;
+                            const logout = document.getElementById('login');
+                
+                            // If logged in, add a logout "link"
+                            if (isLoggedIn) {
+                                logout.textContent = "Logout";
+                                logout.href="Logout.php";
+                            }
+                            else{
+                                logout.textContent = "Login";
+                                logout.href="loginpage.html";
+                                console.log(isLoggedIn)
+                            }
+                        </script>
     </body>
 </html>
