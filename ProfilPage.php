@@ -13,7 +13,7 @@ $fullname = $_SESSION['fullname']
     </head>
     <body>
                 <div class="topnav">
-                    <a class="active" href="Index.html">Color palette creator</a>
+                    <a class="active" href="Index.php">Color palette creator</a>
                         <div class="topnav-right">
                             <a class="active" href="Index.php">Home</a>
                             <a class="active" href="generatorpage.php">Color creator</a>
