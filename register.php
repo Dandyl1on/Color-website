@@ -9,6 +9,7 @@ include "connect.php";
         $checkEmail = "SELECT * FROM users WHERE email= '$email'";
         $result = $conn->query($checkEmail);
         $_SESSION['isLoggedIn'] = true;
+        $_SESSION['userid'] = $id;
         echo "<script>
             localStorage.setItem('isLoggedIn', 'true');
             alert('Account created successful! Welcome {$user['fullname']}');

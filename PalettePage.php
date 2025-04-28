@@ -56,7 +56,7 @@ $isLoggedIn = isset($_SESSION['isLoggedIn']) && $_SESSION['isLoggedIn'];
                             }
                             else{
                                 logout.textContent = "Login";
-                                logout.href="loginpage.php";
+                                logout.href="loginpage.html";
                                 console.log(isLoggedIn)
                             }
                         </script>

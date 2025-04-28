@@ -1,6 +1,7 @@
 <?php
 session_start();
 $isLoggedIn = isset($_SESSION['isLoggedIn']) && $_SESSION['isLoggedIn'];
+$user = isset($_SESSION['user_id']) && $_SESSION['user_id'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,7 +30,7 @@ $isLoggedIn = isset($_SESSION['isLoggedIn']) && $_SESSION['isLoggedIn'];
 
     <center>
         <div class="save">
-            <button onclick="savePalette()">Save Palette</button>
+            <button onclick="generateColors()">Generate Palette</button>
         </div>
     </center>
 
@@ -47,7 +48,7 @@ $isLoggedIn = isset($_SESSION['isLoggedIn']) && $_SESSION['isLoggedIn'];
                     }
                     else{
                         logout.textContent = "Login";
-                        logout.href="loginpage.php";
+                        logout.href="loginpage.html";
                         console.log(isLoggedIn)
                     }
                     
@@ -167,32 +168,12 @@ $isLoggedIn = isset($_SESSION['isLoggedIn']) && $_SESSION['isLoggedIn'];
                     // Funktion til at gemme paletten
                     function savePalette() {
                         if (isLoggedIn) {
-                            // Hvis logget ind, send farverne til server (eller localStorage for nu)
                             const palette = colors.map(c => c.hex);
-                    
-                            // Eksempel på "gem" - her logger vi det bare, men du kan sende til server
-                            console.log("Gemmer palette:", palette);
-                    
-                            // Hvis du har en server route kunne du sende med fetch:
-                            
-                            /*fetch('/savePalette', {
-                                method: 'POST',
-                                headers: {
-                                    'Content-Type': 'application/json'
-                                },
-                                body: JSON.stringify({ palette })
-                            }).then(res => res.json()).then(data => {
-                                alert('Palette saved successfully!');
-                            }).catch(err => {
-                                alert('Error saving palette.');
-                            });*/
-                            
+                            console.log(palette);
                             alert('Palette saved!');
+                            
                         } else {
-                            // Hvis ikke logget ind, vis popup
                             showLoginPopup();
-                            console.log(isLoggedIn);
-                    
                         }
                     }
                     

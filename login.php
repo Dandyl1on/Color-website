@@ -1,4 +1,5 @@
 ﻿<?php
+session_start();
 include "connect.php";
 
     if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -14,10 +15,12 @@ include "connect.php";
                 if (password_verify($password, $user['password'])) {
                     // Successful login - redirect with JavaScript
                     $_SESSION['isLoggedIn'] = true;
+                    $_SESSION['fullname'] = $user['fullname'];
+                  
                     echo "<script>
-                        localStorage.setItem('isLoggedIn', 'true');
+                        //console.log({$_SESSION['fullname']});
                         alert('Login successful! Welcome {$user['fullname']}');
-                        window.location.href = 'Index.html';
+                        window.location.href = 'profilpage.php';
                     </script>";
                 } else {
                     // Wrong password - show popup

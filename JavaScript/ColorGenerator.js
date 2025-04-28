@@ -115,32 +115,29 @@ let isLoggedIn = localStorage.getItem('isLoggedIn') === 'true'; // Sæt til true
 // Funktion til at gemme paletten
 function savePalette() {
     if (isLoggedIn) {
-        // Hvis logget ind, send farverne til server (eller localStorage for nu)
         const palette = colors.map(c => c.hex);
 
-        // Eksempel på "gem" - her logger vi det bare, men du kan sende til server
-        console.log("Gemmer palette:", palette);
-
-        // Hvis du har en server route kunne du sende med fetch:
-        
-        /*fetch('/savePalette', {
+        fetch('savePalette.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ palette })
-        }).then(res => res.json()).then(data => {
-            alert('Palette saved successfully!');
-        }).catch(err => {
-            alert('Error saving palette.');
-        });*/
-        
-        alert('Palette saved!');
+            body: JSON.stringify({ palette: palette })
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    alert('Palette saved!');
+                } else {
+                    alert('Error saving palette: ' + data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Failed to save palette.');
+            });
     } else {
-        // Hvis ikke logget ind, vis popup
         showLoginPopup();
-        console.log(isLoggedIn);
-
     }
 }
 
@@ -162,8 +159,8 @@ function showLoginPopup() {
     popup.innerHTML = `
         <div style="background: white; padding: 40px; border-radius: 12px; text-align: center;">
             <h2>You need to log in</h2>
-            <button onclick="location.href='LoginPage.php'" style="margin: 10px; font-size: 20px;">Login</button>
-            <button onclick="location.href='LoginPage.php'" style="margin: 10px; font-size: 20px;">Register</button>
+            <button onclick="location.href='LoginPage.html'" style="margin: 10px; font-size: 20px;">Login</button>
+            <button onclick="location.href='LoginPage.html'" style="margin: 10px; font-size: 20px;">Register</button>
             <br><br>
             <button onclick="closePopup()" style="margin-top: 20px; font-size: 16px;">Close</button>
         </div>
