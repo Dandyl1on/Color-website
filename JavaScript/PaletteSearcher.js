@@ -9,7 +9,10 @@ const images = {
         "Image/red/r1.jpg",
         "Image/red/r2.jpg",
         "Image/red/r3.jpg",
-        "Image/red/r4.jpg"
+        "Image/red/r4.jpg",
+        "Image/red/r5.png",
+        "Image/red/r6.png",
+        "Image/red/r7.png"
     ],
     purple: [
         "Image/purple/pu1.jpg",
@@ -28,7 +31,8 @@ const images = {
         "Image/orange/o1.jpg",
         "Image/orange/o2.jpg",
         "Image/orange/o3.jpg",
-        "Image/orange/o4.jpg"
+        "Image/orange/o4.jpg",
+        "Image/orange/o5.png"
     ],
     teal: [
         "Image/teal/t1.jpg",
@@ -142,5 +146,5 @@ function rgbToHex(r, g, b) {
     return "#" + [r, g, b].map(x => {
         const hex = x.toString(16);
         return hex.length === 1 ? '0' + hex : hex;
-    }).join('');
+    }).join('').toUpperCase();;
 }

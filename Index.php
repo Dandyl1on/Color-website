@@ -31,13 +31,13 @@ $isLoggedIn = isset($_SESSION['isLoggedIn']) && $_SESSION['isLoggedIn'];
         </div>    
         <div class="Palette-Example">
             <center>
-            <a href="PalettePage.html"><h1>Explore Palettes</h1></a>
+            <a href="PalettePage.php"><h1>Explore Palettes</h1></a>
             <hr class="Line1">
             <br><br><br><br> 
-            <img class="PaletteExamples" src="Image/FlowerPalette.png" alt=""> <br><br><br><br>
-            <img class="PaletteExamples" src="Image/PeoplePalette.png" alt=""> <br><br><br><br>
-            <img class="PaletteExamples" src="Image/SunsetPalette.png" alt=""> <br><br><br><br>
-            <img class="PaletteExamples" src="Image/AirballonPalette.png" alt=""> <br><br><br><br>
+            <a href="PalettePage.php"><img class="PaletteExamples" src="Image/FlowerPalette.png"></a> <br><br><br><br>
+            <a href="PalettePage.php"><img class="PaletteExamples" src="Image/PeoplePalette.png"></a> <br><br><br><br>
+            <a href="PalettePage.php"><img class="PaletteExamples" src="Image/SunsetPalette.png"></a> <br><br><br><br>
+            <a href="PalettePage.php"><img class="PaletteExamples" src="Image/AirballonPalette.png"></a> <br><br><br><br>
             </center>
         </div>
 
@@ -61,7 +61,7 @@ $isLoggedIn = isset($_SESSION['isLoggedIn']) && $_SESSION['isLoggedIn'];
             }
             else{
                 logout.textContent = "Login";
-                logout.href="loginpage.html";
+                logout.href="loginpage.php";
                 console.log(isLoggedIn)
             }
         </script>
