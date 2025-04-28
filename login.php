@@ -18,7 +18,7 @@ include "connect.php";
                     $_SESSION['fullname'] = $user['fullname'];
                   
                     echo "<script>
-                        //console.log({$_SESSION['fullname']});
+                      
                         alert('Login successful! Welcome {$user['fullname']}');
                         window.location.href = 'profilpage.php';
                     </script>";

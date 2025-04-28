@@ -50,7 +50,7 @@ $fullname = $_SESSION['fullname']
                         logout.href="Logout.php";
                         
                         UserName.textContent = fullname;
-                        console.log(fullname);   
+                          
                                              
                         daytext.textContent = "Dette er din farve i dag";
                         const randomColor = getRandomColor();
