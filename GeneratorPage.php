@@ -27,9 +27,11 @@ $isLoggedIn = isset($_SESSION['isLoggedIn']) && $_SESSION['isLoggedIn'];
 
     <div class="colorContainer" id="colorContainer"></div>
 
-    <div style="text-align: center; margin-top: 20px;">
-        <button onclick="savePalette()">Save Palette</button>
-    </div>
+    <center>
+        <div class="save">
+            <button onclick="savePalette()">Save Palette</button>
+        </div>
+    </center>
 
     <p id="copyMessage" class="animate__animated" style="text-align:center; font-weight:bold;"></p>
     </div>
@@ -45,7 +47,7 @@ $isLoggedIn = isset($_SESSION['isLoggedIn']) && $_SESSION['isLoggedIn'];
                     }
                     else{
                         logout.textContent = "Login";
-                        logout.href="loginpage.html";
+                        logout.href="loginpage.php";
                         console.log(isLoggedIn)
                     }
                     
