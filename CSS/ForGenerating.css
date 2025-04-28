@@ -95,3 +95,10 @@ html, body {
 *, *::before, *::after {
     box-sizing: border-box;
 }
+
+.save button{
+    text-align: center; 
+    margin-top: 20px;
+    font-size: 20px;
+    padding: 15px;
+}

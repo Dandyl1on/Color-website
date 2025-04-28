@@ -1,47 +1,146 @@
-const palettes = {
+const images = {
+    pink: [
+        "Image/pink/p1.jpg",
+        "Image/pink/p2.jpg",
+        "Image/pink/p3.jpg",
+        "Image/pink/p4.jpg"
+    ],
     red: [
-        ["#FF6F61", "#FFB88C", "#FFD3B6"],
-        ["#FF6F61", "#C94C4C", "#FF9A8B"]
+        "Image/red/r1.jpg",
+        "Image/red/r2.jpg",
+        "Image/red/r3.jpg",
+        "Image/red/r4.jpg"
     ],
     purple: [
-        ["#6B5B95", "#B8A9C9", "#EEE3F0"],
-        ["#6B5B95", "#83677B", "#B497BD"]
+        "Image/purple/pu1.jpg",
+        "Image/purple/pu2.jpg",
+        "Image/purple/pu3.jpg",
+        "Image/purple/pu4.jpg",
+        "Image/purple/pu5.jpg"
     ],
     green: [
-        ["#88B04B", "#A8E6CF", "#DCEDC1"],
-        ["#88B04B", "#6B8E23", "#9ACD32"]
+        "Image/green/g1.jpg",
+        "Image/green/g2.jpg",
+        "Image/green/g3.jpg",
+        "Image/green/g4.jpg"
     ],
     orange: [
-        ["#FFA500", "#FFD580", "#FFB347"],
-        ["#FFA500", "#FF7F50", "#FF6F61"]
+        "Image/orange/o1.jpg",
+        "Image/orange/o2.jpg",
+        "Image/orange/o3.jpg",
+        "Image/orange/o4.jpg"
     ],
     teal: [
-        ["#009688", "#4DB6AC", "#B2DFDB"],
-        ["#009688", "#00796B", "#48C9B0"]
+        "Image/teal/t1.jpg",
+        "Image/teal/t2.jpg",
+        "Image/teal/t3.jpg",
+        "Image/teal/t4.jpg",
+        "Image/teal/t5.jpg"
     ]
 };
 
+// Lytter på farve-kvadraterne
 document.querySelectorAll('.color-square').forEach(square => {
     square.addEventListener('click', function() {
         const color = this.getAttribute('data-color');
-        showPalettes(color);
+        showImages(color);
     });
 });
 
-function showPalettes(color) {
+// Funktion til at vise billeder efter farve
+function showImages(color) {
     const display = document.getElementById('palette-display');
-    display.innerHTML = ''; // Clear previous palettes
-    if (palettes[color]) {
-        palettes[color].forEach(palette => {
-            const paletteDiv = document.createElement('div');
-            paletteDiv.className = 'palette';
-            palette.forEach(colorCode => {
-                const colorBlock = document.createElement('div');
-                colorBlock.className = 'palette-color';
-                colorBlock.style.backgroundColor = colorCode;
-                paletteDiv.appendChild(colorBlock);
+    display.innerHTML = ''; // Ryd det gamle indhold
+
+    if (images[color]) {
+        images[color].forEach(imgPath => {
+            const img = document.createElement('img');
+            img.src = imgPath;
+            img.className = 'color-image';
+            img.crossOrigin = "anonymous"; 
+            img.addEventListener('click', function() {
+                extractColors(this);
             });
-            display.appendChild(paletteDiv);
+            display.appendChild(img);
         });
     }
+}
+
+// Vis alle billeder fra start
+window.onload = function() {
+    showAllImages();
+};
+
+function showAllImages() {
+    const display = document.getElementById('palette-display');
+    display.innerHTML = '';
+    for (let color in images) {
+        images[color].forEach(imgPath => {
+            const img = document.createElement('img');
+            img.src = imgPath;
+            img.className = 'color-image';
+            img.crossOrigin = "anonymous"; 
+            img.addEventListener('click', function() {
+                extractColors(this);
+            });
+            display.appendChild(img);
+        });
+    }
+}
+
+// Funktion til at hente farver fra billede
+function extractColors(imgElement) {
+    const colorThief = new ColorThief();
+    
+    if (imgElement.complete) {
+        showColors(imgElement, colorThief.getPalette(imgElement, 5));
+    } else {
+        imgElement.addEventListener('load', function() {
+            showColors(imgElement, colorThief.getPalette(imgElement, 5));
+        });
+    }
+}
+
+// Funktion til at vise billede + farver
+function showColors(imgElement, palette) {
+    const display = document.getElementById('palette-display');
+    display.innerHTML = ''; // Ryd det gamle indhold
+
+    // Opret billede og placer det øverst
+    const selectedImage = document.createElement('img');
+    selectedImage.src = imgElement.src;
+    selectedImage.className = 'selected-image'; // Klasse til styling
+
+    // Opret farvepaletten og placer den under billedet
+    const colorsDiv = document.createElement('div');
+    colorsDiv.className = 'color-palette';
+
+    palette.forEach(color => {
+        const hex = rgbToHex(color[0], color[1], color[2]);
+        const colorBox = document.createElement('div');
+        colorBox.className = 'color-box';
+        colorBox.style.backgroundColor = hex;
+        colorBox.innerHTML = `<p>${hex}</p>`;
+        colorsDiv.appendChild(colorBox);
+    });
+
+    // Opret "Back"-knappen og placer den under farverne
+    const backButton = document.createElement('button');
+    backButton.textContent = "Back";
+    backButton.onclick = showAllImages;
+    backButton.className = 'back-button';
+
+    // Tilføj billedet og farverne til displayet
+    display.appendChild(selectedImage);
+    display.appendChild(colorsDiv);
+    display.appendChild(backButton);
+}
+
+
+// Funktion til at lave RGB om til HEX
+function rgbToHex(r, g, b) {
+    return "#" + [r, g, b].map(x => {
+        const hex = x.toString(16);
+        return hex.length === 1 ? '0' + hex : hex;
+    }).join('');
 }
