@@ -49,12 +49,12 @@ $isLoggedIn = isset($_SESSION['isLoggedIn']) && $_SESSION['isLoggedIn'];
                 <p>Rendsburggade 14</p>
                 <p>Aalborg University</p>
         </footer>
+
+        
         <script>
-            // Check if user is logged in
             let isLoggedIn = <?php echo $isLoggedIn ? 'true' : 'false'; ?>;
             const logout = document.getElementById('login');
 
-            // If logged in, add a logout "link"
             if (isLoggedIn) {
                 logout.textContent = "Logout";
                 logout.href="Logout.php";

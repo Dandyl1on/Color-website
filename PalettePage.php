@@ -45,11 +45,9 @@ $isLoggedIn = isset($_SESSION['isLoggedIn']) && $_SESSION['isLoggedIn'];
 
         <script src="JavaScript/palettesearcher.js"></script>
         <script>
-                            // Check if user is logged in
                             let isLoggedIn = <?php echo $isLoggedIn ? 'true' : 'false'; ?>;
                             const logout = document.getElementById('login');
                 
-                            // If logged in, add a logout "link"
                             if (isLoggedIn) {
                                 logout.textContent = "Logout";
                                 logout.href="Logout.php";

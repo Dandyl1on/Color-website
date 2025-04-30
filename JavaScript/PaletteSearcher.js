@@ -43,7 +43,6 @@ const images = {
     ]
 };
 
-// Lytter på farve-kvadraterne
 document.querySelectorAll('.color-square').forEach(square => {
     square.addEventListener('click', function() {
         const color = this.getAttribute('data-color');
@@ -51,10 +50,9 @@ document.querySelectorAll('.color-square').forEach(square => {
     });
 });
 
-// Funktion til at vise billeder efter farve
 function showImages(color) {
     const display = document.getElementById('palette-display');
-    display.innerHTML = ''; // Ryd det gamle indhold
+    display.innerHTML = ''; 
 
     if (images[color]) {
         images[color].forEach(imgPath => {
@@ -70,7 +68,6 @@ function showImages(color) {
     }
 }
 
-// Vis alle billeder fra start
 window.onload = function() {
     showAllImages();
 };
@@ -92,7 +89,6 @@ function showAllImages() {
     }
 }
 
-// Funktion til at hente farver fra billede
 function extractColors(imgElement) {
     const colorThief = new ColorThief();
     
@@ -105,17 +101,15 @@ function extractColors(imgElement) {
     }
 }
 
-// Funktion til at vise billede + farver
 function showColors(imgElement, palette) {
     const display = document.getElementById('palette-display');
-    display.innerHTML = ''; // Ryd det gamle indhold
+    display.innerHTML = ''; 
 
-    // Opret billede og placer det øverst
+    
     const selectedImage = document.createElement('img');
     selectedImage.src = imgElement.src;
-    selectedImage.className = 'selected-image'; // Klasse til styling
+    selectedImage.className = 'selected-image'; 
 
-    // Opret farvepaletten og placer den under billedet
     const colorsDiv = document.createElement('div');
     colorsDiv.className = 'color-palette';
 
@@ -128,20 +122,16 @@ function showColors(imgElement, palette) {
         colorsDiv.appendChild(colorBox);
     });
 
-    // Opret "Back"-knappen og placer den under farverne
     const backButton = document.createElement('button');
     backButton.textContent = "Back";
     backButton.onclick = showAllImages;
     backButton.className = 'back-button';
 
-    // Tilføj billedet og farverne til displayet
     display.appendChild(selectedImage);
     display.appendChild(colorsDiv);
     display.appendChild(backButton);
 }
 
-
-// Funktion til at lave RGB om til HEX
 function rgbToHex(r, g, b) {
     return "#" + [r, g, b].map(x => {
         const hex = x.toString(16);

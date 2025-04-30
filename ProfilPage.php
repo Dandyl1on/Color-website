@@ -33,7 +33,6 @@ $fullname = $_SESSION['fullname']
 
 
 <script>
-        // Check if user is logged in
                     let isLoggedIn = <?php echo $isLoggedIn ? 'true' : 'false'; ?>;
                     const logout = document.getElementById('login');
                     
@@ -44,7 +43,6 @@ $fullname = $_SESSION['fullname']
                     let fullname = "<?php echo htmlspecialchars($fullname) ?>";
                     const UserName = document.getElementById('username');
                     
-                    // If logged in, add a logout "link"
                     if (isLoggedIn) {
                         logout.textContent = "Logout";
                         logout.href="Logout.php";

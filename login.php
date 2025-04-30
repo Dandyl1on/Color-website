@@ -13,7 +13,6 @@ include "connect.php";
             $user = $result->fetch_assoc();
             
                 if (password_verify($password, $user['password'])) {
-                    // Successful login - redirect with JavaScript
                     $_SESSION['isLoggedIn'] = true;
                     $_SESSION['fullname'] = $user['fullname'];
                   
@@ -23,14 +22,12 @@ include "connect.php";
                         window.location.href = 'profilpage.php';
                     </script>";
                 } else {
-                    // Wrong password - show popup
                     echo "<script>
                         alert('Wrong password!');
                         window.history.back();
                     </script>";
                 }
             } else {
-                // No user found - show popup
                 echo "<script>
                     alert('No user with that email!');
                     window.history.back();

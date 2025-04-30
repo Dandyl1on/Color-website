@@ -29,19 +29,19 @@ $user = isset($_SESSION['user_id']) && $_SESSION['user_id'];
     <div class="colorContainer" id="colorContainer"></div>
 
     <center>
-        <div class="save">
+        <div class="generate">
             <button onclick="generateColors()">Generate Palette</button>
         </div>
     </center>
 
     <p id="copyMessage" class="animate__animated" style="text-align:center; font-weight:bold;"></p>
     </div>
+
+    
     <script>
-        // Check if user is logged in
                     let isLoggedIn = <?php echo $isLoggedIn ? 'true' : 'false'; ?>;
                     const logout = document.getElementById('login');
         
-                    // If logged in, add a logout "link"
                     if (isLoggedIn) {
                         logout.textContent = "Logout";
                         logout.href="Logout.php";
@@ -52,7 +52,6 @@ $user = isset($_SESSION['user_id']) && $_SESSION['user_id'];
                         console.log(isLoggedIn)
                     }
                     
-                    // Funktion: HEX til RGB
                     function hexToRgb(hex) {
                         let bigint = parseInt(hex.slice(1), 16);
                         let r = (bigint >> 16) & 255;
@@ -63,7 +62,6 @@ $user = isset($_SESSION['user_id']) && $_SESSION['user_id'];
                     
                     let colors = [];
                     
-                    // Funktion: Generér nye farver
                     function generateColors() {
                         colors = [];
                         for (let i = 0; i < 5; i++) {
@@ -74,13 +72,11 @@ $user = isset($_SESSION['user_id']) && $_SESSION['user_id'];
                         }
                         renderColorCards();
                     }
-                    
-                    // Function to generate a random hex color
+
                     function getRandomHexColor() {
                         return "#" + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0').toUpperCase();
                     }
                     
-                    // Funktion: Render farvekort
                     function renderColorCards() {
                         const container = document.getElementById("colorContainer");
                         container.innerHTML = "";
@@ -107,7 +103,6 @@ $user = isset($_SESSION['user_id']) && $_SESSION['user_id'];
                                 </div>
                             `;
                     
-                            // Drag-and-drop events
                             card.addEventListener("dragstart", e => {
                                 e.dataTransfer.setData("text/plain", index);
                             });
@@ -126,7 +121,7 @@ $user = isset($_SESSION['user_id']) && $_SESSION['user_id'];
                             container.appendChild(card);
                         });
                     }
-                    
+                     
                     function toggleLock(index) {
                         colors[index].locked = !colors[index].locked;
                         renderColorCards();
@@ -144,7 +139,6 @@ $user = isset($_SESSION['user_id']) && $_SESSION['user_id'];
                         });
                     }
                     
-                    // Space key to regenerate colors
                     document.addEventListener("keydown", (e) => {
                         if (e.code === "Space") {
                             e.preventDefault();
@@ -155,63 +149,10 @@ $user = isset($_SESSION['user_id']) && $_SESSION['user_id'];
                         }
                     });
                     
-                    // Initial color generation on page load
                     document.addEventListener("DOMContentLoaded", () => {
                         generateColors();
                     });
                     
-                    
-                    
-                    
-                    // Simulerer login status - du kan sætte dette op med rigtig session senere
-                    
-                    // Funktion til at gemme paletten
-                    function savePalette() {
-                        if (isLoggedIn) {
-                            const palette = colors.map(c => c.hex);
-                            console.log(palette);
-                            alert('Palette saved!');
-                            
-                        } else {
-                            showLoginPopup();
-                        }
-                    }
-                    
-                    // Funktion til at vise login/registrerings pop-up
-                    function showLoginPopup() {
-                        // Laver en simpel popup (kan styles meget pænere)
-                        const popup = document.createElement("div");
-                        popup.style.position = "fixed";
-                        popup.style.top = "0";
-                        popup.style.left = "0";
-                        popup.style.width = "100%";
-                        popup.style.height = "100%";
-                        popup.style.backgroundColor = "rgba(0,0,0,0.5)";
-                        popup.style.display = "flex";
-                        popup.style.justifyContent = "center";
-                        popup.style.alignItems = "center";
-                        popup.style.zIndex = "1000";
-                    
-                        popup.innerHTML = `
-                            <div style="background: white; padding: 40px; border-radius: 12px; text-align: center;">
-                                <h2>You need to log in</h2>
-                                <button onclick="location.href='LoginPage.html'" style="margin: 10px; font-size: 20px;">Login</button>
-                                <button onclick="location.href='LoginPage.html'" style="margin: 10px; font-size: 20px;">Register</button>
-                                <br><br>
-                                <button onclick="closePopup()" style="margin-top: 20px; font-size: 16px;">Close</button>
-                            </div>
-                        `;
-                    
-                        document.body.appendChild(popup);
-                    }
-                    
-                    // Funktion til at lukke pop-up
-                    function closePopup() {
-                        const popup = document.querySelector("body > div[style*='position: fixed']");
-                        if (popup) {
-                            popup.remove();
-                        }
-                    }
     </script>
 </body>
 </html>

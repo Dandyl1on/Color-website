@@ -37,7 +37,6 @@ input[type="password"] {
     border-radius: 5px;
 }
 
-/* Submit buttons style */
 input[type="submit"] {
     width: 100%;
     padding: 10px;
@@ -52,7 +51,6 @@ input[type="submit"]:hover {
     background: #2980b9;
 }
 
-/* Extra small adjustment */
 .btn_primary {
     font-weight: bold;
 }

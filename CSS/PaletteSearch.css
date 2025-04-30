@@ -3,7 +3,7 @@
     justify-content: center;
     flex-wrap: wrap;
     gap: 15px;
-    margin-top: 120px; /* adjust so it clears the top nav */
+    margin-top: 120px; 
     margin-bottom: 50px;
 }
 

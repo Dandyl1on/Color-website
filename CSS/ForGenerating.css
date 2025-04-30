@@ -4,17 +4,15 @@ html, body {
     padding: 0;
 }
 
-/* Container for the color cards */
 .colorContainer {
     flex: 1;
     display: flex;
     width: 100%;
-    height: calc(100vh - 80px); /* Viewport height minus topnav height */
+    height: calc(100vh - 80px); 
     overflow-x: auto;
-    margin-top: 80px; /* Keeps it under the navbar */
+    margin-top: 80px; 
 }
 
-/* Individual color cards */
 .color-card {
     flex: 1;
     display: flex;
@@ -33,7 +31,6 @@ html, body {
     cursor: grabbing;
 }
 
-/* Color values (hex, rgb) + buttons */
 .colorValues {
     background-color: rgba(182, 182, 182, 0.5);
     backdrop-filter: blur(10px);
@@ -49,7 +46,6 @@ html, body {
     margin: 10px 0;
 }
 
-/* Buttons inside color cards */
 .buttons {
     display: flex;
     justify-content: center;
@@ -78,7 +74,6 @@ html, body {
     vertical-align: middle;
 }
 
-/* Copy message (for "HEX copied!" etc.) */
 #copyMessage {
     font-size: 16px;
     color: black;
@@ -96,7 +91,7 @@ html, body {
     box-sizing: border-box;
 }
 
-.save button{
+.generate button{
     text-align: center;
     margin-top: 20px;
     font-size: 20px;
